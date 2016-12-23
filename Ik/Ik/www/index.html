@@ -26,23 +26,11 @@
             
         </div>
 
-        <div data-role="page" id="pagePerdue" class="ui-field-contain">   
-                    <h3>Autres observations</h3>
-            <input type="checkbox" name="ReticencesFamille" id="ReticencesFamille" value="Reticences dans la famille">
-            <label for = "ReticencesFamille">Réticences dans la famille</label>
-            <input type="checkbox" name="ReticencesQuartier" id="ReticencesQuartier" value="Reticences dans le quartier">
-            <label for = "ReticencesQuartier">Réticences dans le quartier</label><br>
-            <label>Commentaires</label>
-            <textarea name="commentaires" rows="10" cols="30"></textarea><br>
-            <input type="submit" value="Enregistrer les données" class="ui-btn ui-corner-all ui-btn-inline">
-        </div>
-
         <div data-role="page" id="pageVisite">
             <div data-role="main" class="ui-content">                 
                 <ul data-role="listview" data-inset="true" data-theme="b">
                     <li data-icon="false" id="caseDate"></li>
-        <!-- <li data-icon="false" name="caseDate" id="caseDate" value="" type="date" class="caseDate_h">         -->             
-                    </li>
+        <!-- <li data-icon="false" name="caseDate" id="caseDate" value="" type="date" class="caseDate_h"></li> -->
                 </ul>
                 <ul data-role="listview" data-inset="true">
                     <li data-icon="false"><a href="#pagePresence">Soumah Binta, Fata 28 ans J+6</a></li>
@@ -76,11 +64,22 @@
                <input type="checkbox" name="mov2" id="mov2">
                <label for="mov3">Decede(e)</label>
                <input type="checkbox" name="mov3" id="mov3">
-        </div> 
-                   
+        </div>
 
-           
-            
+        <div data-role="page" id="pageOui" class="ui-field-contain">
+            <h3>Autres observations</h3>
+            <input type="checkbox" name="ReticencesFamille" id="ReticencesFamille" value="Reticences dans la famille">
+            <label for = "ReticencesFamille">Réticences dans la famille</label>
+            <input type="checkbox" name="ReticencesQuartier" id="ReticencesQuartier" value="Reticences dans le quartier">
+            <label for = "ReticencesQuartier">Réticences dans le quartier</label><br>
+            <label>Commentaires</label>
+            <textarea name="commentaires" rows="10" cols="30"></textarea><br>
+            <input type="submit" value="Enregistrer les données" class="ui-btn ui-corner-all ui-btn-inline">
+        </div>
+
+
+
+
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="scripts/platformOverrides.js"></script>
         <script type="text/javascript" src="scripts/index.js"></script>
