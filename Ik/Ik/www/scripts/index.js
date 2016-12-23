@@ -11,10 +11,10 @@
         // Gérer les événements de suspension et de reprise Cordova
         document.addEventListener( 'pause', onPause.bind( this ), false );
         document.addEventListener( 'resume', onResume.bind( this ), false );
-        
-        
-            
-             var d = new Date();
+
+
+
+            var d = new Date();
             var days = ["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"];
             var day = d.getDate();
             var months = ["Janvier","Fevrier","Mars","Avril","Mai","Juin","Juillet","Aout","Septembre","Octobre","Novembre","Decembre"];
@@ -25,7 +25,7 @@
                 $('#caseDate').val(currentDate);
             
     };
-    
+
 
 
 
