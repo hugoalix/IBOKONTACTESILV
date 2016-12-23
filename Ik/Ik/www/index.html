@@ -55,13 +55,16 @@
         </div>
 
         <div data-role="page" id="pagePresence">
-            <div data-role="header">
-               <h2>A la maison ce jour</h2>
-            </div>
-            <div data-role="main" class="ui-content">
-                <a href="#pageOui" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Oui</a>
-                <a href="#pageNon" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Non</a>
-            </div>            
+             <div data-role="header" data-id="foo1" data-position="fixed">
+    <div data-role="navbar">
+        <ul>
+            <li><a href="coordonnees.html" data-prefetch="true">Coordonnees</a></li>
+            <li><a href="visite.html" data-prefetch="true">Visite</a></li>
+            <li><a href="historique.html" data-prefetch="true">Historique</a></li>
+            
+        </ul>
+    </div><!-- /navbar -->
+</div><!-- /footer -->
         </div>
 
         <div data-role="page" id="pageNon" class="ui-field-contain">    
