@@ -1,13 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />--> 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+    <meta name="viewport" content="width=device-width, initial-scale=1; charset=utf-8" />
     <link rel="stylesheet" href="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
     <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script>
+	//selon le bouton choisi, champ1 est affiché
+	// alors que champ2 et champ3 reste caché
+	function afficher(btn,champ1,champ2,champ3)
+	{
+		if (btn.checked)
+	   {
+			document.getElementById(champ1).style.display="inline";
+			document.getElementById(champ2).style.display="none";
+			document.getElementById(champ3).style.display="none";
+	   }
+	}
+
+	//affiche le texte par défaut
+	function onBlur(el)
+	{
+    if (el.value == '') el.value = el.defaultValue;
+	}
+	//supprime le texte par défaut
+	function onFocus(el)
+	{
+		if (el.value == el.defaultValue) el.value = '';
+	}
+	</script>
 </head>
- 
+
     <body>
 
         <div data-role="page" id="pageAccueil">
@@ -15,22 +39,18 @@
                 <h1>Accueil</h1>
             </div>
             <div data-role="controlgroup" data-type="vertical">
-                
                     <a href="#pageVisite" data-transition="slide" class="ui-btn ui-corner-all">Visite du jour</a>
                     <a href="#pagePerdue" data-transition="slide" class="ui-btn ui-corner-all ">Perdue de vues</a>
-                     <a href="#pageNouveauContact" data-transition="slide" class="ui-btn ui-corner-all ">Nouveau Contact</a>
+                    <a href="#pageNouveauContact" data-transition="slide" class="ui-btn ui-corner-all ">Nouveau Contact</a>
                     <a href="#pageCentreDeTraitement" data-transition="slide" class="ui-btn ui-corner-all">Centre de traitement</a>
-                  
-             </div>  
-                
-            
+             </div>
         </div>
 
         <div data-role="page" id="pageVisite">
-            <div data-role="main" class="ui-content">                 
+            <div data-role="main" class="ui-content">
                 <ul data-role="listview" data-inset="true" data-theme="b">
                     <li data-icon="false" id="caseDate"></li>
-        <!-- <li data-icon="false" name="caseDate" id="caseDate" value="" type="date" class="caseDate_h"></li> -->
+                    <!-- <li data-icon="false" name="caseDate" id="caseDate" value="" type="date" class="caseDate_h"></li> -->
                 </ul>
                 <ul data-role="listview" data-inset="true">
                     <li data-icon="false"><a href="#pagePresence">Soumah Binta, Fata 28 ans J+6</a></li>
@@ -43,30 +63,123 @@
         </div>
 
         <div data-role="page" id="pagePresence">
-             <div data-role="header" data-id="foo1" data-position="fixed">
-    <div data-role="navbar">
-        <ul>
-            <li><a href="coordonnees.html" data-prefetch="true">Coordonnees</a></li>
-            <li><a href="visite.html" data-prefetch="true">Visite</a></li>
-            <li><a href="historique.html" data-prefetch="true">Historique</a></li>
-            
-        </ul>
-    </div><!-- /navbar -->
-</div><!-- /footer -->
+            <div data-role="header" data-id="foo1" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="coordonnees.html" data-prefetch="true">Coordonnees</a></li>
+                        <li><a href="visite.html" data-prefetch="true">Visite</a></li>
+                        <li><a href="historique.html" data-prefetch="true">Historique</a></li>
+
+                    </ul>
+                </div><!-- /navbar -->
+            </div><!-- /footer -->
+
+            <div data-role="header">
+                <h2>A la maison ce jour</h2>
+            </div>
+            <div data-role="main" class="ui-content">
+                <a href="#pageOui" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Oui</a>
+                <a href="#pageNon" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Non</a>
+            </div>
         </div>
 
-        <div data-role="page" id="pageNon" class="ui-field-contain">    
-                A la maison a ce jour: Non
-                <br>
-               <label for="mov1">En deplacement</label>
-               <input type="checkbox" name="mov1" id="mov1">
-               <label for="mov2">Perdu de vue</label>
-               <input type="checkbox" name="mov2" id="mov2">
-               <label for="mov3">Decede(e)</label>
-               <input type="checkbox" name="mov3" id="mov3">
+        <div data-role="page" id="pageNon" class="ui-field-contain" data-type="horizontal">
+            <h3>A la maison a ce jour: NON </h3>
+            <label for="mov1">En déplacement</label>
+            <input type="radio" name="raison_maison_non" id="mov1" onclick="afficher(this,'infos_mov1','infos_mov2','infos_mov3');">
+            <form id="infos_mov1" style="display:none">
+                <input type="text" id="raison_deplacement" value="Raison du déplacement" onblur="onBlur(this)" onfocus="onFocus(this)">
+
+                <div id="adresse_actuelle">
+                    <input list="adresse" name="adresse_actuelle" value="Ville/Village + Quartier + Maison" onblur="onBlur(this)" onfocus="onFocus(this)">
+                    <datalist id="adresse">
+                        <option value="Non indiquée">
+                    </datalist>
+                </div><br>
+
+                <label for="date_depart">Date de départ</label>
+                <input type="date" id="date_depart"><br>
+
+                <label for="date_retour">Date de retour</label>
+                <input type="date" id="date_retour"><br>
+
+                <div data-role="main" class="ui-content">
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <input type="reset" name="bouton_reset" value="Tout Effacer">
+                        <input type="button" name="bouton_save" value="Enregistrer">
+                    </fieldset>
+                </div>
+            </form>
+
+            <label for="mov2">Perdu de vue</label>
+            <input type="radio" name="raison_maison_non" id="mov2" onclick="afficher(this,'infos_mov2','infos_mov1','infos_mov3');">
+            <form id="infos_mov2" style="display:none">
+                <div id="lieu_probable">
+                    <input list="lieu" name="lieu_probable" value="Lieu probable" onblur="onBlur(this)" onfocus="onFocus(this)">
+                    <datalist id="lieu">
+                        <option value="Non indiquée">
+                    </datalist>
+                </div><br>
+
+                <div id="quartier_probable">
+                    <input list="quartier" name="quartier_probable" value="Quartier probable" onblur="onBlur(this)" onfocus="onFocus(this)">
+                    <datalist id="quartier">
+                        <option value="Non indiquée">
+                    </datalist>
+                </div><br>
+
+                <div id="ville_probable">
+                    <input list="ville" name="ville_probable" value="Ville probable" onblur="onBlur(this)" onfocus="onFocus(this)">
+                    <datalist id="ville">
+                        <option value="Non indiquée">
+                    </datalist>
+                </div><br>
+
+                <div id="contact_probable">
+                    <input list="contact" name="contact_probable" value="Contact probable" onblur="onBlur(this)" onfocus="onFocus(this)">
+                    <datalist id="contact">
+                        <option value="Non indiquée">
+                    </datalist>
+                </div><br>
+
+                <div data-role="main" class="ui-content">
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <input type="reset" name="bouton_reset" value="Tout Effacer">
+                        <input type="button" name="bouton_save" value="Enregistrer">
+                    </fieldset>
+                </div>
+            </form>
+
+            <label for="mov3">Décédé(e)</label>
+            <input type="radio" name="raison_maison_non" id="mov3" onclick="afficher(this,'infos_mov3','infos_mov1','infos_mov2');">
+            <form id="infos_mov3" style="display:none">
+                <label for="date_deces">Date de décès</label>
+                <input type="date" id="date_deces">
+
+                <label>Lieu de décès</label>
+                <label for="deces_domicile">Docimile</label>
+                <input type="radio" id="deces_domicile" class="ui-field-contain">
+                <label for="deces_centre">Centre de santé</label>
+                <input type="radio" id="deces_centre" class="ui-field-contain" onclick="afficher(this,'deces_choix_centre','infos_mov1','infos_mov2');">
+                <div id="deces_choix_centre" style="display:none">
+                    <input list="liste_centres" name="liste_centre">
+                    <datalist id="liste_centres">
+                        <option value="1 centre de la région"> <!-- coder la récupération des centres de la région -->
+                    </datalist>
+                </div>
+                <label for="deces_autre_lieu">Autre lieu</label>
+                <input type="text" id="deces_autre_lieu" value="précisez" onblur="onBlur(this)" onfocus="onFocus(this)">
+
+                <div data-role="main" class="ui-content">
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <input type="reset" name="bouton_reset" value="Tout Effacer">
+                        <input type="button" name="bouton_save" value="Enregistrer">
+                    </fieldset>
+                </div>
+            </form>
         </div>
 
-        <div data-role="page" id="pageOui" class="ui-field-contain">
+        <div data-role="page" id="pageAutresObservations" class="ui-field-contain">
             <h3>Autres observations</h3>
             <input type="checkbox" name="ReticencesFamille" id="ReticencesFamille" value="Reticences dans la famille">
             <label for = "ReticencesFamille">Réticences dans la famille</label>
@@ -76,6 +189,7 @@
             <textarea name="commentaires" rows="10" cols="30"></textarea><br>
             <input type="submit" value="Enregistrer les données" class="ui-btn ui-corner-all ui-btn-inline">
         </div>
+
 
 
 
