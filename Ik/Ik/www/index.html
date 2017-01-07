@@ -106,7 +106,7 @@
                 <div data-role="main" class="ui-content">
                     <fieldset data-role="controlgroup" data-type="horizontal">
                         <input type="reset" name="bouton_reset" value="Tout Effacer">
-                        <input type="button" name="bouton_save" value="Enregistrer">
+                        <input type="button" name="bouton_save" value="Enregistrer" onclick="document.location.href='#pageConfirmationEnregistrement'">
                     </fieldset>
                 </div>
             </form>
@@ -145,7 +145,7 @@
                 <div data-role="main" class="ui-content">
                     <fieldset data-role="controlgroup" data-type="horizontal">
                         <input type="reset" name="bouton_reset" value="Tout Effacer">
-                        <input type="button" name="bouton_save" value="Enregistrer">
+                        <input type="submit" name="bouton_save" value="Enregistrer" onclick="document.location.href='#pageConfirmationEnregistrement'">
                     </fieldset>
                 </div>
             </form>
@@ -173,10 +173,23 @@
                 <div data-role="main" class="ui-content">
                     <fieldset data-role="controlgroup" data-type="horizontal">
                         <input type="reset" name="bouton_reset" value="Tout Effacer">
-                        <input type="button" name="bouton_save" value="Enregistrer">
+                        <input type="submit" name="bouton_save" value="Enregistrer" onclick="document.location.href='#pageConfirmationEnregistrement'">
+                        <!-- coder 1 fonction pour enregistrer les données -->
                     </fieldset>
                 </div>
             </form>
+        </div>
+
+        <!--
+        Cf. CDC une fois que l'utilisateur clique sur le bouton "Oui" de la page "A la maison?", il est redirigé vers l'écran de confirmation "enregistrement des données"
+        mais il doit après aller sur la page Autres observation et pour terminer la page Confirmation enregistrement
+        C'est pourquoi j'ai crée 2 pages d'enregistrements (pageOui et pageConfirmationEnregistrement).
+        Jessica
+        -->
+        <div data-role="page" id="pageOui" class="ui-field-contain">
+            <p>Les informations ont bien été enregistrées</p>
+            <a href="#pageAutresObservations" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Suivant</a>
+            <!-- créer 1 fonction enregistrer les données -->
         </div>
 
         <div data-role="page" id="pageAutresObservations" class="ui-field-contain">
@@ -187,8 +200,17 @@
             <label for = "ReticencesQuartier">Réticences dans le quartier</label><br>
             <label>Commentaires</label>
             <textarea name="commentaires" rows="10" cols="30"></textarea><br>
-            <input type="submit" value="Enregistrer les données" class="ui-btn ui-corner-all ui-btn-inline">
+            <input type="submit" value="Enregistrer les données" class="ui-btn ui-corner-all ui-btn-inline" onclick="document.location.href='#pageConfirmationEnregistrement'">
+            <!-- coder 1 fonction pour enregistrer les données -->
         </div>
+
+        <!-- manque le timer de 5s (onLoad, setTime)-->
+        <div data-role="page" id="pageConfirmationEnregistrement" class="ui-field-contain">
+            <p>Les informations ont bien été enregistrées</p>
+            <!-- coder 1 fonction pour enregistrer les données -->
+            <a href="#pageVisite" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Retour à la liste des personnes à visiter</a>
+        </div>
+
 
 
 
