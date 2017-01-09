@@ -188,23 +188,11 @@
         -->
         <div data-role="page" id="pageOui" class="ui-field-contain">
             <h3>A la maison ce jour:OUI</h3>
-            <label for="mov1">En déplacement</label>
-            <input type="radio" name="raison_maison_non" id="mov1" onclick="afficher(this,'infos_mov1','infos_mov2','infos_mov3');">
-            <form id="infos_mov1" style="display:none">
-                <input type="text" id="raison_deplacement" value="Raison du déplacement" onblur="onBlur(this)" onfocus="onFocus(this)">
+            <label for="mov1">Température</label>
+            <form id="temperature" style="display:none">
 
-                <div id="adresse_actuelle">
-                    <input list="adresse" name="adresse_actuelle" value="Ville/Village + Quartier + Maison" onblur="onBlur(this)" onfocus="onFocus(this)">
-                    <datalist id="adresse">
-                        <option value="Non indiquée">
-                    </datalist>
-                </div><br>
-
-                <label for="date_depart">Date de départ</label>
-                <input type="date" id="date_depart"><br>
-
-                <label for="date_retour">Date de retour</label>
-                <input type="date" id="date_retour"><br>
+                <label for="temperature">Température</label>
+                <input type="text" id="temperature"><br>
 
                 <div data-role="main" class="ui-content">
                     <fieldset data-role="controlgroup" data-type="horizontal">
