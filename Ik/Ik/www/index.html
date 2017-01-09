@@ -69,6 +69,7 @@
                         <li><a href="coordonnees.html" data-prefetch="true">Coordonnees</a></li>
                         <li><a href="visite.html" data-prefetch="true">Visite</a></li>
                         <li><a href="historique.html" data-prefetch="true">Historique</a></li>
+
                     </ul>
                 </div><!-- /navbar -->
             </div><!-- /footer -->
@@ -83,8 +84,8 @@
         </div>
 
         <div data-role="page" id="pageNon" class="ui-field-contain" data-type="horizontal">
-            <h3>A la maison a ce jour: NON </h3>
-            <label for="mov1">Raison de son absence</label>
+            <h3>A la maison ce jour:NON</h3>
+            <label for="mov1">En déplacement</label>
             <input type="radio" name="raison_maison_non" id="mov1" onclick="afficher(this,'infos_mov1','infos_mov2','infos_mov3');">
             <form id="infos_mov1" style="display:none">
                 <input type="text" id="raison_deplacement" value="Raison du déplacement" onblur="onBlur(this)" onfocus="onFocus(this)">
