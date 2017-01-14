@@ -11,19 +11,13 @@
         // Gérer les événements de suspension et de reprise Cordova
         document.addEventListener( 'pause', onPause.bind( this ), false );
         document.addEventListener( 'resume', onResume.bind( this ), false );
-
-
-
             var d = new Date();
             var days = ["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"];
             var day = d.getDate();
             var months = ["Janvier","Fevrier","Mars","Avril","Mai","Juin","Juillet","Aout","Septembre","Octobre","Novembre","Decembre"];
             var year = d.getFullYear();
             var currentDate = days[d.getDay()]+'/'+ day+'/'+ months[d.getMonth()]+'/'+year;;
- 
-
-                $('#caseDate').val(currentDate);
-            
+            $('#caseDate').val(currentDate);
     };
 
 
@@ -36,4 +30,23 @@
     function onResume() {
         // TODO: cette application a été réactivée. Restaurez l'état de l'application ici.
     };
-} )();
+} );
+
+//selon le bouton choisi, champ1 est affiché alors que champ2 et champ3 reste caché
+function afficher(btn,champ1,champ2,champ3){
+    if (btn.checked)
+   {
+        document.getElementById(champ1).style.display="inline";
+        document.getElementById(champ2).style.display="none";
+        document.getElementById(champ3).style.display="none";
+   }
+}
+
+//dans les inputs, affiche le texte par défaut
+function afficherTexte(input){
+if (input.value == '') input.value = input.defaultValue;
+}
+//dans les inputs, supprime le texte par défaut
+function supprimerTexte(input){
+    if (input.value == input.defaultValue) input.value = '';
+}

@@ -6,27 +6,6 @@
     <link rel="stylesheet" href="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
     <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    <script>
-	//selon le bouton choisi, champ1 est affiché
-	// alors que champ2 et champ3 reste caché
-	function afficher(btn,champ1,champ2,champ3){
-		if (btn.checked)
-	   {
-			document.getElementById(champ1).style.display="inline";
-			document.getElementById(champ2).style.display="none";
-			document.getElementById(champ3).style.display="none";
-	   }
-	}
-
-	//affiche le texte par défaut
-	function afficherTexte(input){
-    if (input.value == '') input.value = input.defaultValue;
-	}
-	//supprime le texte par défaut
-	function supprimerTexte(input){
-		if (input.value == input.defaultValue) input.value = '';
-	}
-	</script>
 </head>
 
 <body>
@@ -85,10 +64,10 @@
     <label for="mov1">En déplacement</label>
     <input type="radio" name="raison_maison_non" id="mov1" onclick="afficher(this,'infos_mov1','infos_mov2','infos_mov3');">
     <form id="infos_mov1" style="display:none">
-        <input type="text" id="raison_deplacement" value="Raison du déplacement" onblur="onBlur(this)" onfocus="supprimerTexte(this)">
+        <input type="text" id="raison_deplacement" value="Raison du déplacement" data-clear-btn="true" data-mini="true" onblur="onBlur(this)" onfocus="supprimerTexte(this)">
 
         <div id="adresse_actuelle">
-            <input list="adresse" name="adresse_actuelle" value="Ville/Village + Quartier + Maison" onblur="afficherTexte(this)" onfocus="supprimerTexte(this)">
+            <input list="adresse" name="adresse_actuelle" value="Ville/Village + Quartier + Maison" data-clear-btn="true" data-mini="true" onblur="afficherTexte(this)" onfocus="supprimerTexte(this)">
             <datalist id="adresse">
                 <option value="Non indiquée">
             </datalist>
@@ -101,9 +80,10 @@
         <input type="date" id="date_retour"><br>
 
         <div data-role="main" class="ui-content">
-            <fieldset data-role="controlgroup" data-type="horizontal">
-                <input type="reset" name="bouton_reset" value="Tout Effacer">
-                <input type="button" name="bouton_save" value="Enregistrer" onclick="document.location.href='#pageConfirmationEnregistrement'">
+            <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+                <input type="reset" name="bouton_reset" value="Tout Effacer" data-icon="delete" data-iconpos="right">
+                <input type="button" name="bouton_save" value="Enregistrer" data-icon="check" data-iconpos="right" onclick="document.location.href='#pageConfirmationEnregistrement'">
+                <!-- coder 1 fonction pour enregistrer les données -->
             </fieldset>
         </div>
     </form>
@@ -112,37 +92,38 @@
     <input type="radio" name="raison_maison_non" id="mov2" onclick="afficher(this,'infos_mov2','infos_mov1','infos_mov3');">
     <form id="infos_mov2" style="display:none">
         <div id="lieu_probable">
-            <input list="lieu" name="lieu_probable" value="Lieu probable" onblur="afficherTexte(this)" onfocus="supprimerTexte(this)">
+            <input list="lieu" name="lieu_probable" value="Lieu probable" data-clear-btn="true" data-mini="true" onblur="afficherTexte(this)" onfocus="supprimerTexte(this)">
             <datalist id="lieu">
                 <option value="Non indiquée">
             </datalist>
-        </div><br>
+        </div>
 
         <div id="quartier_probable">
-            <input list="quartier" name="quartier_probable" value="Quartier probable" onblur="afficherTexte(this)" onfocus="supprimerTexte(this)">
+            <input list="quartier" name="quartier_probable" value="Quartier probable" data-clear-btn="true" data-mini="true" onblur="afficherTexte(this)" onfocus="supprimerTexte(this)">
             <datalist id="quartier">
                 <option value="Non indiquée">
             </datalist>
-        </div><br>
+        </div>
 
         <div id="ville_probable">
-            <input list="ville" name="ville_probable" value="Ville probable" onblur="afficherTexte(this)" onfocus="supprimerTexte(this)">
+            <input list="ville" name="ville_probable" value="Ville probable" data-clear-btn="true" data-mini="true" onblur="afficherTexte(this)" onfocus="supprimerTexte(this)">
             <datalist id="ville">
                 <option value="Non indiquée">
             </datalist>
-        </div><br>
+        </div>
 
         <div id="contact_probable">
-            <input list="contact" name="contact_probable" value="Contact probable" onblur="afficherTexte(this)" onfocus="supprimerTexte(this)">
+            <input list="contact" name="contact_probable" value="Contact probable" data-clear-btn="true" data-mini="true" onblur="afficherTexte(this)" onfocus="supprimerTexte(this)">
             <datalist id="contact">
                 <option value="Non indiquée">
             </datalist>
-        </div><br>
+        </div>
 
         <div data-role="main" class="ui-content">
-            <fieldset data-role="controlgroup" data-type="horizontal">
-                <input type="reset" name="bouton_reset" value="Tout Effacer">
-                <input type="submit" name="bouton_save" value="Enregistrer" onclick="document.location.href='#pageConfirmationEnregistrement'">
+            <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+                <input type="reset" name="bouton_reset" value="Tout Effacer" data-icon="delete" data-iconpos="right">
+                <input type="button" name="bouton_save" value="Enregistrer" data-icon="check" data-iconpos="right" onclick="document.location.href='#pageConfirmationEnregistrement'">
+                <!-- coder 1 fonction pour enregistrer les données -->
             </fieldset>
         </div>
     </form>
@@ -159,18 +140,19 @@
         <label for="deces_centre">Centre de santé</label>
         <input type="radio" id="deces_centre" class="ui-field-contain" onclick="afficher(this,'deces_choix_centre','infos_mov1','infos_mov2');">
         <div id="deces_choix_centre" style="display:none">
-            <input list="liste_centres" name="liste_centre">
+            <input list="liste_centres" name="liste_centre" data-clear-btn="true" data-mini="true">
             <datalist id="liste_centres">
-                <option value="1 centre de la région"> <!-- coder la récupération des centres de la région -->
+                <option value="1 centre de la région">
+                <!-- coder la récupération des centres de la région -->
             </datalist>
         </div>
         <label for="deces_autre_lieu">Autre lieu</label>
-        <input type="text" id="deces_autre_lieu" value="précisez" onblur="afficherTexte(this)" onfocus="supprimerTexte(this)">
+        <input type="text" id="deces_autre_lieu" value="précisez" data-clear-btn="true" data-mini="true" onblur="afficherTexte(this)" onfocus="supprimerTexte(this)">
 
         <div data-role="main" class="ui-content">
-            <fieldset data-role="controlgroup" data-type="horizontal">
-                <input type="reset" name="bouton_reset" value="Tout Effacer">
-                <input type="submit" name="bouton_save" value="Enregistrer" onclick="document.location.href='#pageConfirmationEnregistrement'">
+            <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+                <input type="reset" name="bouton_reset" value="Tout Effacer" data-icon="delete" data-iconpos="right">
+                <input type="button" name="bouton_save" value="Enregistrer" data-icon="check" data-iconpos="right" onclick="document.location.href='#pageConfirmationEnregistrement'">
                 <!-- coder 1 fonction pour enregistrer les données -->
             </fieldset>
         </div>
@@ -204,7 +186,7 @@ Jessica
 <div data-role="page" id="pageConfirmationEnregistrement" class="ui-field-contain">
     <p>Les informations ont bien été enregistrées</p>
     <!-- coder 1 fonction pour enregistrer les données -->
-    <a href="#pageVisite" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Retour à Visite</a>
+    <a href="#pageVisite" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Retour à la liste des visites</a>
 </div>
 
 <script type="text/javascript" src="cordova.js"></script>
