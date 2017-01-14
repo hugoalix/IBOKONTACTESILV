@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1; " charset=utf-8 />
+        <link rel="stylesheet" href="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    </head>
+    <body>
+        <div data-role="panel" id="menu_navigation" data-display="push">
+            <a href="#pageAccueil" data-transition="slide" class="ui-btn ui-corner-all">Accueil/Tableau de bord</a>
+            <a href="#pageConfirmeProbable" data-transition="slide" class="ui-btn ui-corner-all">Cas confirmé/probable</a>
+            <a href="#pagePersonneContact" data-transition="slide" class="ui-btn ui-corner-all">Personne Contact</a>
+            <a href="#pageStatistiques" data-transition="slide" class="ui-btn ui-corner-all">Statistiques</a>
+            <a href="#pageParametrage" data-transition="slide" class="ui-btn ui-corner-all">Paramétrage</a>
+            <input type="submit" value="Déconnexion">
+
+            <!-- <ul class="mmenu_opened">
+                <li class="mmenu-opened"><a href="#pageAccueil" data-transition="slide" class="ui-btn ui-corner-all">Accueil/Tableau de bord</a></li>
+                <li><a href="#pageConfirmeProbable" data-transition="slide" class="ui-btn ui-corner-all">Cas confirmé/probable</a></li>
+                <li><a href="#pagePersonneContact" data-transition="slide" class="ui-btn ui-corner-all">Personne Contact</a></li>
+                <li><a href="#pageStatistiques" data-transition="slide" class="ui-btn ui-corner-all">Statistiques</a></li>
+                <li><a href="#pageParametrage" data-transition="slide" class="ui-btn ui-corner-all">Paramétrage</a></li>
+                <li><input type="submit" value="Déconnexion"></li>
+            !!!!!!!!!!!!!!!!!!!!http://www.jqueryscript.net/demo/Slick-App-Like-Sliding-Menu-Plugin-With-jQuery-Mmenu/examples/tutorial/
+            </ul>-->
+
+        </div>
+
+        <div data-role="page" id="pageAccueil" class="mmenu-page" style>
+            <div data-role="header" id="header">
+                <a href="#menu_navigation" data-transition="slide" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-left"></a>
+                <h1>Tableau de bord - [Prénom de l'utilisateur] Nom de l'utilisateur</h1>
+            </div>
+
+            <div id="content">
+            </div>
+        </div>
+
+        <div data-role="page" id="pageConfirmeProbable">
+            <div data-role="header">
+                <h1>Cas Confirmés/probables</h1>
+                <a href="#menu_navigation" data-transition="slide" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-left"></a>
+            </div>
+            <div data-role="main" class="ui-content">
+                <p> page cas confirmé</p>
+            </div>
+
+        </div>
+
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+        <script type="text/javascript" src="scripts/index.js"></script>
+        <script src="scripts/jquery-2.2.4.min.js"></script>
+        <script src="scripts/jquery.mobile-1.4.5.min.js"></script>
+    </body>
+</html>
