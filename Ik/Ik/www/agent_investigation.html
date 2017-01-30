@@ -37,7 +37,99 @@
                 <h1>Tableau de bord - [Prénom de l'utilisateur] Nom de l'utilisateur</h1>
             </div>
 
-            <div id="content">
+            <div data-role="main" class="ui-content">
+                <form id="recherche" >
+                    <b>Recherche rapide. </b><i>La recherche s'effectue sir m'ensemble cas confirmés, cas probables, personnes contacts.</i>
+                    <div class="ui-field-contain">
+                        <label for="recherche_name">Nom</label>
+                        <input type="text" name="reseach_name" id="recherche_name">
+
+                        <label for="recherche_prenom">Prénom</label>
+                        <input type="text" name="reseach_prenom" id="recherche_prenom" data-inline="true">
+
+                        <input type="submit" name="bouton_recherche" value="Rechercher" data-icon="search" data-iconpos="top" data-inline="true">
+                    </div>
+                </form>
+
+                <table id="table_agent">
+                Tableau agent investigateur
+                    <!-- 1ère ligne -->
+                    <tr>
+                        <td><a href="#pageConfirmeProbable" data-transition="slide">Cas confirmé/probable</a></td>
+                        <td><a href="#pagePersonneContact" data-transition="slide">Personnes Contacts</a></td>
+                    </tr>
+
+                    <!-- 2ème ligne -->
+                    <tr>
+                        <td>Liste des personnes à investiguer</td>
+                    </tr>
+                </table><br>
+
+                <table id="table_superviseur">
+                    Tableau Superviseur
+                    <!-- 1ère ligne -->
+                    <tr>
+                        <td><a href="#pagePersonneContact" data-transition="slide">Personnes Contacts</a></td>
+                        <td><a href="#pageConfirmeProbable" data-transition="slide">Cas confirmé/probable</a></td>
+                        <td><a href="#pageVisiteur" data-transition="slide">Visiteurs</a></td>
+                    </tr>
+
+                    <!-- 2ème ligne -->
+                    <tr>
+                        <td>Contact non vus</td>
+                        <td>Nouveau cas probable</td>
+                        <td>Nouveau visiteur</td>
+                    </tr>
+
+                    <!-- 3ème ligne -->
+                    <tr>
+                        <td>Contacts non affectés</td>
+                        <td></td>
+                        <td><a href="#pageEtablissement" data-transition="slide">Etablissement</a></td>
+                    </tr>
+
+                    <!-- 4ème ligne -->
+                    <tr>
+                        <td>Contacts perdu de vue/en déplacement (issus d'un autre secteur)</td>
+                        <td></td>
+                        <td>Nouveau visiteur médical</td>
+                    </tr>
+
+                    <!-- 5ème ligne -->
+                    <tr>
+                        <td>Nouveau contact</td>
+                    </tr>
+                </table><br>
+
+                <table id="table_centre-labo">
+                    Tableau Centre de transit/laboration
+                    <!-- 1ère ligne -->
+                    <tr>
+                        <td><a href="#pageConfirmeProbable" data-transition="slide">Cas confirmé/probable</a></td>
+                        <td><a href="#pagePersonneContact" data-transition="slide">Personnes Contacts</a></td>
+                    </tr>
+
+                    <!-- 2ème ligne -->
+                    <tr>
+                        <td></td>
+                        <td>Nouveau contact</td>
+                    </tr>
+                </table><br>
+
+                <table id="table_centre-traitement">
+                    Tableau Centre de traitement
+                    <!-- 1ère ligne -->
+                    <tr>
+                        <td><a href="#pageConfirmeProbable" data-transition="slide">Cas confirmé/probable</a></td>
+                        <td><a href="#pagePersonneContact" data-transition="slide">Personnes Contacts</a></td>
+                    </tr>
+
+                    <!-- 2ème ligne -->
+                    <tr>
+                        <td>Cas suivi</td>
+                        <td>Nouveau contact</td>
+                    </tr>
+                </table>
             </div>
         </div>
 
