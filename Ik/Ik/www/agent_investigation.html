@@ -12,6 +12,15 @@
 		});
 	    </script>
         -->
+        <!-- selon le bouton choisi, champ1 est affiché alors que champ2 et champ3 reste caché-->
+        <script>
+        function afficher(btn,champ1,champ2,champ3,champ4){
+        document.getElementById(champ1).style.display="inline";
+        document.getElementById(champ2).style.display="none";
+        document.getElementById(champ3).style.display="none";
+        document.getElementById(champ4).style.display="none";
+        }
+        </script>
     </head>
     <body>
             <div data-role="panel" id="menu_navigation" data-display="push">
@@ -47,11 +56,14 @@
                         <label for="recherche_prenom">Prénom</label>
                         <input type="text" name="reseach_prenom" id="recherche_prenom" data-inline="true">
 
-                        <input type="submit" name="bouton_recherche" value="Rechercher" data-icon="search" data-iconpos="top" data-inline="true">
+                        <input type="submit" name="bouton_recherche" value="Rechercher" data-icon="search" data-iconpos="top" data-inline="true" data-mini="true">
                     </div>
                 </form>
-
-                <table id="table_agent">
+                <input type="button" value="Agent d'investigation" data-inline="true" data-mini="true" onclick="afficher(this,'table_agent', 'table_superviseur', 'table_centre-labo', 'table_centre-traitement');">
+                <input type="button" value="Superviseur" data-inline="true" data-mini="true" onclick="afficher(this,'table_superviseur', 'table_agent', 'table_centre-labo', 'table_centre-traitement')">
+                <input type="button" value="Centre de transit" data-inline="true" data-mini="true" onclick="afficher(this,'table_centre-labo', 'table_agent', 'table_superviseur', 'table_centre-traitement')">
+                <input type="button" value="Centre de traitement" data-inline="true" data-mini="true" onclick="afficher(this,'table_centre-traitement', 'table_agent', 'table_superviseur', 'table_centre-labo')"><br>
+                <table id="table_agent" style="display:none">
                 Tableau agent investigateur
                     <!-- 1ère ligne -->
                     <tr>
@@ -65,7 +77,7 @@
                     </tr>
                 </table><br>
 
-                <table id="table_superviseur">
+                <table id="table_superviseur" style="display:none">
                     Tableau Superviseur
                     <!-- 1ère ligne -->
                     <tr>
@@ -101,7 +113,7 @@
                     </tr>
                 </table><br>
 
-                <table id="table_centre-labo">
+                <table id="table_centre-labo" style="display:none">
                     Tableau Centre de transit/laboration
                     <!-- 1ère ligne -->
                     <tr>
@@ -116,7 +128,7 @@
                     </tr>
                 </table><br>
 
-                <table id="table_centre-traitement">
+                <table id="table_centre-traitement" style="display:none">
                     Tableau Centre de traitement
                     <!-- 1ère ligne -->
                     <tr>
