@@ -113,6 +113,7 @@
             <label for="mov2">Perdu de vue</label>
             <input type="radio" name="raison_maison_non" id="mov2" onclick="afficher(this,'infos_mov2','infos_mov1','infos_mov3');">
             <form id="infos_mov2" style="display:none">
+
                 <div id="lieu_probable">
                     <input list="lieu" name="lieu_probable" value="Lieu probable" onblur="onBlur(this)" onfocus="onFocus(this)">
                     <datalist id="lieu">
@@ -134,8 +135,8 @@
                     </datalist>
                 </div><br>
 
-                <div id="contact_probable">
-                    <input list="contact" name="contact_probable" value="Contact probable" onblur="onBlur(this)" onfocus="onFocus(this)">
+                <div id="contact_local">
+                    <input list="contact" name="contact_local" value="Contact local" onblur="onBlur(this)" onfocus="onFocus(this)">
                     <datalist id="contact">
                         <option value="Non indiquée">
                     </datalist>
