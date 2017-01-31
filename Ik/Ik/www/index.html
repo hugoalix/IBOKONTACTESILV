@@ -69,7 +69,6 @@
                         <li><a href="coordonnees.html" data-prefetch="true">Coordonnees</a></li>
                         <li><a href="visite.html" data-prefetch="true">Visite</a></li>
                         <li><a href="historique.html" data-prefetch="true">Historique</a></li>
-
                     </ul>
                 </div><!-- /navbar -->
             </div><!-- /footer -->
@@ -199,9 +198,27 @@
                 </div>
             </form>
             <p>Les informations ont bien été enregistrées</p>
-            <a href="#pageAutresObservations" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Suivant</a>
+            <a href="#pagepresenteDesSignesCliniques" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Suivant</a>
             <!-- créer 1 fonction enregistrer les données -->
         </div>
+
+        <div data-role="page" id="pagepresenteDesSignesCliniques">
+            <h3>Présence de signes cliniques ?</h3>
+            <div data-role="main" class="ui-content">
+                <a href="#pageOuiSignes" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Oui</a>
+                <a href="#pageNonSignes" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Non</a>
+            </div>
+        </div>
+
+        <div data-role="page" id="pageOuiSignes">
+            <h3>Présente des signes cliniques</h3>
+            <label for="mov1">Liste signes cliniques</label>
+            <input type="text" id="ListeSignesCliniques"><br>
+            <label for="mov2">Conclusions médicales</label>
+            <input type="text" id="ConclusionsMedicales"><br>
+            <input type="button" name="Enregistrer" value="Enregistrer">
+        </div>
+
 
         <div data-role="page" id="pageAutresObservations" class="ui-field-contain">
             <h3>Autres observations</h3>
