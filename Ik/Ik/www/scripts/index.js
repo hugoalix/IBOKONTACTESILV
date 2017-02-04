@@ -20,9 +20,6 @@
             $('#caseDate').val(currentDate);
     };
 
-
-
-
     function onPause() {
         // TODO: cette application a été suspendue. Enregistrez l'état de l'application ici.
     };
@@ -50,3 +47,11 @@ if (input.value == '') input.value = input.defaultValue;
 function supprimerTexte(input){
     if (input.value == input.defaultValue) input.value = '';
 }
+
+//dans la page Perdu de Vue, filtre la liste "Visite du jour" pour obtenir la page Perdu de Vue
+function perduDeVueFilte(){
+
+//récupérer les personnes contact => x[i].innerHTML
+var x = document.getElementsByName("listeVisiteContact");
+    document.getElementById("listePerdu").innerHTML = document.getElementById("listeVisite").innerHTML;
+ }

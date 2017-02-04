@@ -15,8 +15,8 @@
             </div>
             <div data-role="controlgroup" data-type="vertical">
                 <a href="#pageVisite" data-transition="slide" class="ui-btn ui-corner-all">Visite du jour</a>
-                <a href="#pagePerdue" data-transition="slide" class="ui-btn ui-corner-all ">Perdue de vues</a>
-                <a href="#pageNouveauContact" data-transition="slide" class="ui-btn ui-corner-all ">Nouveau Contact</a>
+                <a href="#pageNouveauContact" data-transition="slide" class="ui-btn ui-corner-all">Nouveau Contact</a>
+                <a href="#pagePerdu" data-transition="slide" class="ui-btn ui-corner-all" onclick="perduDeVueFilte()">Perdu de vue</a>
                 <a href="#pageCentreDeTraitement" data-transition="slide" class="ui-btn ui-corner-all">Centre de traitement</a>
             </div>
         </div>
@@ -24,15 +24,17 @@
         <div data-role="page" id="pageVisite">
             <div data-role="main" class="ui-content">
                 <ul data-role="listview" data-inset="true" data-theme="b">
-                    <li data-icon="false" id="caseDate"></li>
+                    <!-- Date -->
+                    <li data-icon="false" id="caseDateVisite"></li>
                     <!-- <li data-icon="false" name="caseDate" id="caseDate" value="" type="date" class="caseDate_h"></li> -->
                 </ul>
-                <ul data-role="listview" data-inset="true">
-                    <li data-icon="false"><a href="#pagePresence">Soumah Binta, Fata 28 ans J+6</a></li>
-                    <li data-icon="false"><a href="#pagePresence">Oulare Binta, Fata 40 ans J+6</a></li>
-                    <li data-icon="false"><a href="#pagePresence">Magass Binta, Fata 68 ans J+6</a></li>
-                    <li data-icon="false"><a href="#pagePresence">Kaba Binta, Fata  16 ans J+6</a></li>
-                    <li data-icon="false"><a href="#pagePresence">Kaba Binta, Fata  32 ans J+6</a></li>
+                <ul id="listeVisite" data-role="listview" data-inset="true">
+                    <li data-icon="false"><a href="#pagePresence" name="listeVisiteContact"><span name="nom">Soumah</span> <span name="prenom1"> Binta</span>, <span name="prenom2">Fata</span> - <span name="age">28 ans</span> <span name="jourSuivi">J+6</span></a></li>
+                    <li data-icon="false"><a href="#pagePresence" name="listeVisiteContact"><span name="nom">Oulare</span> <span name="prenom1"> Binta</span>, <span name="prenom2">Fata</span> - <span name="age">40 ans</span> <span name="jourSuivi">J+6</span></a></li>
+                    <li data-icon="false"><a href="#pagePresence" name="listeVisiteContact"><span name="nom">Magass</span> <span name="prenom1"> Binta</span>, <span name="prenom2">Fata</span> - <span name="age">68 ans</span> <span name="jourSuivi">J+6</span></a></li>
+                    <li data-icon="false"><a href="#pagePresence" name="listeVisiteContact"><span name="nom">Kaba</span> <span name="prenom1"> Binta</span>, <span name="prenom2">Fata</span> - <span name="age">16 ans</span> <span name="jourSuivi">J+6</span></a></li>
+                    <li data-icon="false"><a href="#pagePresence" name="listeVisiteContact"><span name="nom">Kaba</span> <span name="prenom1"> Binta</span>, <span name="prenom2">Fata</span> - <span name="age">32 ans</span> <span name="jourSuivi">J+6</span></a></li>
+
                 </ul>
             </div>
         </div>
@@ -380,6 +382,20 @@
                 </div>
             </form>
         </div>
+
+        <!-- page Perdu de vues-->
+        <div data-role="page" id="pagePerdu">
+            <div data-role="main" class="ui-content">
+                <ul data-role="listview" data-inset="true" data-theme="b">
+                    <!-- Date -->
+                    <li data-icon="false" id="caseDatePerdu"></li>
+                    <!-- <li data-icon="false" name="caseDate" id="caseDate" value="" type="date" class="caseDate_h"></li> -->
+                </ul>
+                <ul id="listePerdu" data-role="listview" data-inset="true">
+                </ul>
+            </div>
+        </div>
+
 
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="scripts/platformOverrides.js"></script>
