@@ -2,13 +2,13 @@
 <html lang="fr">
     <head>
         <!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
-        <meta name="viewport" content="width=device-width, initial-scale=1; " charset=utf-8 />
+        <meta name="viewport" content="width=device-width, initial-scale=1" charset=utf-8 />
         <link rel="stylesheet" href="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
         <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
         <script src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     </head>
 
-    <body onload="perduDeVueFilte()">
+    <body onload="perduDeVueFilte(); compteur()">
         <div data-role="page" id="pageAccueil">
             <div data-role="header">
                 <h1>Accueil</h1>
@@ -29,11 +29,11 @@
                     <!-- <li data-icon="false" name="caseDate" id="caseDate" value="" type="date" class="caseDate_h"></li> -->
                 </ul>
                 <ul id="listeVisite" data-role="listview" data-inset="true">
-                    <li data-icon="false" class="personneContact"><a href="#pagePresence"><span class="nom">Soumah</span> <span class="prenom1"> Binta</span>, <span class="prenom2">Fata</span> - <span class="age">28 ans</span> <span class="jourSuivi">J+0</span></a></li>
-                    <li data-icon="false" class="personneContact"><a href="#pagePresence"><span class="nom">Oulare</span> <span class="prenom1"> Binta</span>, <span class="prenom2">Fata</span> - <span class="age">40 ans</span> <span class="jourSuivi">J+1</span></a></li>
-                    <li data-icon="false" class="personneContact"><a href="#pagePresence"><span class="nom">Magass</span> <span class="prenom1"> Binta</span>, <span class="prenom2">Fata</span> - <span class="age">68 ans</span> <span class="jourSuivi">J+2</span></a></li>
-                    <li data-icon="false" class="personneContact"><a href="#pagePresence"><span class="nom">Kaba</span> <span class="prenom1"> Binta</span>, <span class="prenom2">Fata</span> - <span class="age">16 ans</span> <span class="jourSuivi">J+3</span></a></li>
-                    <li data-icon="false" class="personneContact"><a href="#pagePresence"><span class="nom">Kaba</span> <span class="prenom1"> Binta</span>, <span class="prenom2">Fata</span> - <span class="age">32 ans</span> <span class="jourSuivi">J+6</span></a></li>
+                    <li data-icon="false" class="personneContact"><a href="#pagePresence"><span class="nom">Soumah</span> <span class="prenom1"> Binta</span>, <span class="prenom2">Fata</span> - <span class="age">28 ans</span> <span class="jourSuivi">J+<span class="nombreJours"></span></span></a></li>
+                    <li data-icon="false" class="personneContact"><a href="#pagePresence"><span class="nom">Oulare</span> <span class="prenom1"> Binta</span>, <span class="prenom2">Fata</span> - <span class="age">40 ans</span> <span class="jourSuivi">J+<span class="nombreJours">0</span></span></a></li>
+                    <li data-icon="false" class="personneContact"><a href="#pagePresence"><span class="nom">Magass</span> <span class="prenom1"> Binta</span>, <span class="prenom2">Fata</span> - <span class="age">68 ans</span> <span class="jourSuivi">J+<span class="nombreJours">6</span></span></a></li>
+                    <li data-icon="false" class="personneContact"><a href="#pagePresence"><span class="nom">Kaba</span> <span class="prenom1"> Binta</span>, <span class="prenom2">Fata</span> - <span class="age">16 ans</span> <span class="jourSuivi">J+<span class="nombreJours">2</span></span></a></li>
+                    <li data-icon="false" class="personneContact"><a href="#pagePresence"><span class="nom">Kaba</span> <span class="prenom1"> Binta</span>, <span class="prenom2">Fata</span> - <span class="age">32 ans</span> <span class="jourSuivi">J+<span class="nombreJours">0</span></span></a></li>
                 </ul>
             </div>
         </div>
@@ -201,7 +201,8 @@
             </div><!-- /footer -->
 
             <div data-role="main" class="ui-content">
-                <p>Les informations ont bien été enregistrées</p>
+                <p class="maisonOui">Oui</p>
+                <p>La personne est à la maison</p>
                 <a href="#pageAutresObservations" data-transition="slide" class="ui-btn ui-corner-all">Suivant</a>
                 <!-- créer 1 fonction enregistrer les données -->
             </div>
