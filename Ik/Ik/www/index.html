@@ -4,8 +4,63 @@
         <!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
         <meta name="viewport" content="width=device-width, initial-scale=1" charset=utf-8 />
         <link rel="stylesheet" href="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <link rel="stylesheet" href="Ik/www/css/images/index.css" />
         <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
         <script src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <!-- /*dans l'onglet Historique, onglets Visite, Medical et Visite/Medical*/ -->
+        <style>
+
+        ul.tab {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+
+        /* Float the list items side by side */
+        ul.tab li {float: left;}
+
+        /* Style the links inside the list items */
+        ul.tab li a {
+            display: inline-block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 17px;
+        }
+
+        /* Change background color of links on hover */
+        ul.tab li a:hover {
+            background-color: #ddd;
+        }
+
+        /* Create an active/current tablink class */
+        ul.tab li a:focus, .active {
+            background-color: #ccc;
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            -webkit-animation: fadeEffect 1s;
+            animation: fadeEffect 1s;
+        }
+
+        @-webkit-keyframes fadeEffect {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        @keyframes fadeEffect {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+        </style>
     </head>
 
     <body onload="perduDeVueFilte(); compteur()">
@@ -17,7 +72,7 @@
                 <a href="#pageVisite" data-transition="slide" class="ui-btn ui-corner-all">Visite du jour</a>
                 <a href="#pageNouveauContact" data-transition="slide" class="ui-btn ui-corner-all">Nouveau Contact</a>
                 <a href="#pagePerdu" data-transition="slide" class="ui-btn ui-corner-all">Perdu de vue</a>
-                <a href="#pageCentreDeTraitement" data-transition="slide" class="ui-btn ui-corner-all">Centre de traitement</a>
+                <a href="#pageCentreDeTraitement" data-transition="slide" class="ui-btn ui-corner-all">En centre de traitement</a>
             </div>
         </div>
 
@@ -29,7 +84,7 @@
                     <!-- <li data-icon="false" name="caseDate" id="caseDate" value="" type="date" class="caseDate_h"></li> -->
                 </ul>
                 <ul id="listeVisite" data-role="listview" data-inset="true">
-                    <li data-icon="false" class="personneContact"><a href="#pagePresence"><span class="nom">Soumah</span> <span class="prenom1"> Binta</span>, <span class="prenom2">Fata</span> - <span class="age">28 ans</span> <span class="jourSuivi">J+<span class="nombreJours">0</span></span></a></li>
+                    <li data-icon="false" class="personneContact"><a href="#pagePresence"><span class="nom">Soumah</span> <span class="prenom1"> Binta</span>, <span class="prenom2">Fata</span> - <span class="age">28 ans</span> <span class="jourSuivi">J+<span class="nombreJours">1</span></span></a></li>
                     <li data-icon="false" class="personneContact"><a href="#pagePresence"><span class="nom">Oulare</span> <span class="prenom1"> Binta</span>, <span class="prenom2">Fata</span> - <span class="age">40 ans</span> <span class="jourSuivi">J+<span class="nombreJours">0</span></span></a></li>
                     <li data-icon="false" class="personneContact"><a href="#pagePresence"><span class="nom">Magass</span> <span class="prenom1"> Binta</span>, <span class="prenom2">Fata</span> - <span class="age">68 ans</span> <span class="jourSuivi">J+<span class="nombreJours">6</span></span></a></li>
                     <li data-icon="false" class="personneContact"><a href="#pagePresence"><span class="nom">Kaba</span> <span class="prenom1"> Binta</span>, <span class="prenom2">Fata</span> - <span class="age">16 ans</span> <span class="jourSuivi">J+<span class="nombreJours">2</span></span></a></li>
@@ -44,7 +99,7 @@
                     <ul>
                         <li><a href="#coordonnees" data-prefetch="true">Coordonnées</a></li>
                         <li><a href="#pagePresence" data-prefetch="true" class="ui-btn-active ui-state-persist">Visite</a></li>
-                        <li><a href="historique.html" data-prefetch="true">Historique</a></li>
+                        <li><a href="#historique" data-prefetch="true">Historique</a></li>
 
                     </ul>
                 </div><!-- /navbar -->
@@ -65,7 +120,7 @@
                     <ul>
                         <li><a href="#coordonnees" data-prefetch="true">Coordonnees</a></li>
                         <li><a href="#pagePresence" data-prefetch="true" class="ui-btn-active ui-state-persist">Visite</a></li>
-                        <li><a href="historique.html" data-prefetch="true">Historique</a></li>
+                        <li><a href="#historique" data-prefetch="true">Historique</a></li>
 
                     </ul>
                 </div><!-- /navbar -->
@@ -194,14 +249,13 @@
                     <ul>
                         <li><a href="#coordonnees" data-prefetch="true">Coordonnées</a></li>
                         <li><a href="#pagePresence" data-prefetch="true" class="ui-btn-active ui-state-persist">Visite</a></li>
-                        <li><a href="historique.html" data-prefetch="true">Historique</a></li>
+                        <li><a href="#historique" data-prefetch="true">Historique</a></li>
 
                     </ul>
                 </div><!-- /navbar -->
             </div><!-- /footer -->
 
             <div data-role="main" class="ui-content">
-                <p class="maisonOui">Oui</p>
                 <p>La personne est à la maison</p>
                 <a href="#pageAutresObservations" data-transition="slide" class="ui-btn ui-corner-all">Suivant</a>
                 <!-- créer 1 fonction enregistrer les données -->
@@ -214,7 +268,7 @@
                     <ul>
                         <li><a href="#coordonnees" data-prefetch="true">Coordonnees</a></li>
                         <li><a href="#pagePresence" data-prefetch="true" class="ui-btn-active ui-state-persist">Visite</a></li>
-                        <li><a href="historique.html" data-prefetch="true">Historique</a></li>
+                        <li><a href="#historique" data-prefetch="true">Historique</a></li>
 
                     </ul>
                 </div><!-- /navbar -->
@@ -242,7 +296,7 @@
                     <ul>
                         <li><a href="#coordonnees" data-prefetch="true">Coordonnées</a></li>
                         <li><a href="#pagePresence" data-prefetch="true" class="ui-btn-active ui-state-persist">Visite</a></li>
-                        <li><a href="historique.html" data-prefetch="true">Historique</a></li>
+                        <li><a href="#historique" data-prefetch="true">Historique</a></li>
 
                     </ul>
                 </div><!-- /navbar -->
@@ -263,8 +317,7 @@
                     <ul>
                         <li><a href="#coordonnees" data-prefetch="true" class="ui-btn-active">Coordonnées</a></li>
                         <li><a href="#pagePresence" data-prefetch="true">Visite</a></li>
-                        <li><a href="historique.html" data-prefetch="true">Historique</a></li>
-
+                        <li><a href="#historique" data-prefetch="true">Historique</a></li>
                     </ul>
                 </div><!-- /navbar -->
             </div><!-- /footer -->
@@ -294,6 +347,40 @@
                 <a href="#pageNouveauContact" data-transition="slide" class="ui-btn ui-corner-all">Nouveau Contact</a>
             </div>
         </div>
+
+        <!-- onglet Historique-->
+        <div data-role="page" id="historique">
+            <div data-role="header" data-id="foo1" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#coordonnees" data-prefetch="true">Coordonnées</a></li>
+                        <li><a href="#pagePresence" data-prefetch="true">Visite</a></li>
+                        <li><a href="#historique" data-prefetch="true" class="ui-btn-active">Historique</a></li>
+                    </ul>
+                </div><!-- /navbar -->
+            </div><!-- /footer -->
+
+            <div data-role="tabs" class="ui-content">
+                <ul class="tab">
+                    <li><a class="tablinks" onclick="openOnglet(event, 'Visite')">Visite</a></li>
+                    <li><a class="tablinks" onclick="openOnglet(event, 'Medical')">Médical</a></li>
+                    <li><a class="tablinks" onclick="openOnglet(event, 'VisiteMedical')">Visite / Médical</a></li>
+                </ul>
+
+                <div id="Visite" class="tabcontent">
+                    détail des données jour par jour + état psychologique et physique + autres observation
+                </div>
+
+                <div id="Medical" class="tabcontent">
+                    détail des vistes médical: T°, signes cliniques + détails + autres observations
+                </div>
+
+                <div id="VisiteMedical" class="tabcontent">
+                    détail des données jour par jour + état psychologique et physique + autres observation
+                </div>
+            </div>
+        </div>
+
 
         <!-- page Nouveau Contact -->
         <div data-role="page" id="pageNouveauContact">
@@ -392,10 +479,10 @@
                     <!-- <li data-icon="false" name="caseDate" id="caseDate" value="" type="date" class="caseDate_h"></li> -->
                 </ul>
                 <ul id="listePerdu" data-role="listview" data-inset="true">
+                    <!-- affichage de la liste des personnes Perdu de Vue -->
                 </ul>
             </div>
         </div>
-
 
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="scripts/platformOverrides.js"></script>

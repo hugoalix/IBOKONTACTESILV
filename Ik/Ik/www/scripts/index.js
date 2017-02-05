@@ -30,10 +30,18 @@
 } );
 
 //compteur de nombre de jour suivi
+/*
 function compteur(){
-    document.getElementsByClassName("nombreJours")[0].innerHTML=2;
-
+    var derniereVisite = new Date();
+    var dateDerniereVisite;
+    var auj = new Date();
+    var aujourdhui = auj.getDate();
+    var nombreJours = document.getElementsByClassName("nombreJours");
+    for(var i = 0; i < nombreJours.length(); i++ ){
+        nombreJours[0].innerHTML=2 + aujourdhui;
+    }
 }
+*/
 
 //selon le bouton choisi, champ1 est affiché alors que champ2 et champ3 reste caché
 function afficher(btn,champ1,champ2,champ3){
@@ -58,10 +66,25 @@ function supprimerTexte(input){
 function perduDeVueFilte(){
     var personneContact = document.getElementsByClassName("personneContact");
     var joursSuivi = document.getElementsByClassName("jourSuivi");
-    var nombreJours = compteur();
-        for(var i = 0; i < personneContact.length; i++){
-            if(joursSuivi[i].innerHTML >= "J+<span class=\"nombreJours\">1</span>"){
-                document.getElementById("listePerdu").innerHTML += '<li data-icon="false" class="personnePerdu">'+ personneContact[i].innerHTML + "</li>";
-            }
+    //var nombreJours = compteur();
+    for(var i = 0; i < personneContact.length; i++){
+        if(joursSuivi[i].innerHTML >= "J+<span class=\"nombreJours\">1</span>"){
+            document.getElementById("listePerdu").innerHTML += '<li data-icon="false" class="personnePerdu">'+ personneContact[i].innerHTML + "</li>";
         }
+    }
  }
+
+//dans l'onglet Historique, affiche les div correspondant aux onglets Visite,Medical, Viste/Medical
+function openOnglet(evt, nomOnglet) {
+    var tabcontent = document.getElementsByClassName("tabcontent");
+    var tablinks = document.getElementsByClassName("tablinks");
+    for (var i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    for (var i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(nomOnglet).style.display = "block";
+    evt.currentTarget.className += " active";
+}
