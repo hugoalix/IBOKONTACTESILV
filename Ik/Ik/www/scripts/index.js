@@ -31,7 +31,7 @@
 
 //compteur de nombre de jour suivi
 function compteur(){
-    document.getElementsByClassName("nombreJours")[0].innerHTML=3;
+    document.getElementsByClassName("nombreJours")[0].innerHTML=2;
 
 }
 
@@ -60,7 +60,7 @@ function perduDeVueFilte(){
     var joursSuivi = document.getElementsByClassName("jourSuivi");
     var nombreJours = compteur();
         for(var i = 0; i < personneContact.length; i++){
-            if(joursSuivi[i].innerHTML >= "J+1"){
+            if(joursSuivi[i].innerHTML >= "J+<span class=\"nombreJours\">1</span>"){
                 document.getElementById("listePerdu").innerHTML += '<li data-icon="false" class="personnePerdu">'+ personneContact[i].innerHTML + "</li>";
             }
         }
