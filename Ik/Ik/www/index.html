@@ -8,7 +8,7 @@
         <script src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     </head>
 
-    <body>
+    <body onload="perduDeVueFilte()">
         <div data-role="page" id="pageAccueil">
             <div data-role="header">
                 <h1>Accueil</h1>
@@ -16,7 +16,7 @@
             <div data-role="controlgroup" data-type="vertical">
                 <a href="#pageVisite" data-transition="slide" class="ui-btn ui-corner-all">Visite du jour</a>
                 <a href="#pageNouveauContact" data-transition="slide" class="ui-btn ui-corner-all">Nouveau Contact</a>
-                <a href="#pagePerdu" data-transition="slide" class="ui-btn ui-corner-all" onclick="perduDeVueFilte()">Perdu de vue</a>
+                <a href="#pagePerdu" data-transition="slide" class="ui-btn ui-corner-all">Perdu de vue</a>
                 <a href="#pageCentreDeTraitement" data-transition="slide" class="ui-btn ui-corner-all">Centre de traitement</a>
             </div>
         </div>
@@ -29,12 +29,11 @@
                     <!-- <li data-icon="false" name="caseDate" id="caseDate" value="" type="date" class="caseDate_h"></li> -->
                 </ul>
                 <ul id="listeVisite" data-role="listview" data-inset="true">
-                    <li data-icon="false"><a href="#pagePresence" name="listeVisiteContact"><span name="nom">Soumah</span> <span name="prenom1"> Binta</span>, <span name="prenom2">Fata</span> - <span name="age">28 ans</span> <span name="jourSuivi">J+6</span></a></li>
-                    <li data-icon="false"><a href="#pagePresence" name="listeVisiteContact"><span name="nom">Oulare</span> <span name="prenom1"> Binta</span>, <span name="prenom2">Fata</span> - <span name="age">40 ans</span> <span name="jourSuivi">J+6</span></a></li>
-                    <li data-icon="false"><a href="#pagePresence" name="listeVisiteContact"><span name="nom">Magass</span> <span name="prenom1"> Binta</span>, <span name="prenom2">Fata</span> - <span name="age">68 ans</span> <span name="jourSuivi">J+6</span></a></li>
-                    <li data-icon="false"><a href="#pagePresence" name="listeVisiteContact"><span name="nom">Kaba</span> <span name="prenom1"> Binta</span>, <span name="prenom2">Fata</span> - <span name="age">16 ans</span> <span name="jourSuivi">J+6</span></a></li>
-                    <li data-icon="false"><a href="#pagePresence" name="listeVisiteContact"><span name="nom">Kaba</span> <span name="prenom1"> Binta</span>, <span name="prenom2">Fata</span> - <span name="age">32 ans</span> <span name="jourSuivi">J+6</span></a></li>
-
+                    <li data-icon="false" class="personneContact"><a href="#pagePresence"><span class="nom">Soumah</span> <span class="prenom1"> Binta</span>, <span class="prenom2">Fata</span> - <span class="age">28 ans</span> <span class="jourSuivi">J+0</span></a></li>
+                    <li data-icon="false" class="personneContact"><a href="#pagePresence"><span class="nom">Oulare</span> <span class="prenom1"> Binta</span>, <span class="prenom2">Fata</span> - <span class="age">40 ans</span> <span class="jourSuivi">J+1</span></a></li>
+                    <li data-icon="false" class="personneContact"><a href="#pagePresence"><span class="nom">Magass</span> <span class="prenom1"> Binta</span>, <span class="prenom2">Fata</span> - <span class="age">68 ans</span> <span class="jourSuivi">J+2</span></a></li>
+                    <li data-icon="false" class="personneContact"><a href="#pagePresence"><span class="nom">Kaba</span> <span class="prenom1"> Binta</span>, <span class="prenom2">Fata</span> - <span class="age">16 ans</span> <span class="jourSuivi">J+3</span></a></li>
+                    <li data-icon="false" class="personneContact"><a href="#pagePresence"><span class="nom">Kaba</span> <span class="prenom1"> Binta</span>, <span class="prenom2">Fata</span> - <span class="age">32 ans</span> <span class="jourSuivi">J+6</span></a></li>
                 </ul>
             </div>
         </div>

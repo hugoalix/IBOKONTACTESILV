@@ -50,8 +50,15 @@ function supprimerTexte(input){
 
 //dans la page Perdu de Vue, filtre la liste "Visite du jour" pour obtenir la page Perdu de Vue
 function perduDeVueFilte(){
+    //récupérer les personnes contact => x[i].innerHTML
+        var personneContact = document.getElementsByClassName("personneContact");
+        var nombreJoursSuivi = document.getElementsByClassName("jourSuivi");
 
-//récupérer les personnes contact => x[i].innerHTML
-var x = document.getElementsByName("listeVisiteContact");
-    document.getElementById("listePerdu").innerHTML = document.getElementById("listeVisite").innerHTML;
+
+            for(var i = 0; personneContact.length; i++){
+                if(nombreJoursSuivi[i].innerHTML >= "J+1"){
+                    document.getElementById("listePerdu").innerHTML += '<li data-icon="false" class="personnePerdu">'+ personneContact[i].innerHTML + "</li>";
+                }
+            }
+        document.getElementById("listePerdu").innerHTML += '<li data-icon="false" class="personnePerdu">'+ personneContact[0].innerHTML + "</li>";
  }
