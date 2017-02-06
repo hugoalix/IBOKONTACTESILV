@@ -216,22 +216,26 @@
             <h3>Présente des signes cliniques</h3>
             <label for="mov1">Liste signes cliniques</label>
             <form>
-                <select name="Signes cliniques">
                     <!--recuperation des valeurs avec la base de données...-->
-                    <input type="checkbox" name="VN" id="VN"/><label for="VN">Vomissement ou nausées</label><br />
-                    <option>Diarrhée</option>
-                    <option>Fatigue intense</option>
-                    <option>Ictère</option>
-                    <option>Myalgies/arthralgies</option>
-                    <option>Céphalées</option>
-                    <option>Difficultés respiratoires</option>
-                    <option>Hoquets</option>
-                </select>
+                    <input type="checkbox" name="VN" id="VN"/><label for="VN">Vomissement ou nausées</label>
+                    <input type="checkbox" name="Diarrhée" id="Diarrhée"/><label for="Diarrhée">Diarrhée</label>
+                    <input type="checkbox" name="Fatigue intense" id="Fatigue intense"/><label for="Fatigue intense">Fatigue intense</label>
+                    <input type="checkbox" name="Ictère" id="Ictère"/><label for="Ictère">Ictère</label>
+                    <input type="checkbox" name="Myalgies" id="Myalgies"/><label for="Myalgies">Myalgies/arthralgies</label>
+                    <input type="checkbox" name="Céphalées" id="Céphalées"/><label for="Céphalées">Céphalées</label>
+                    <input type="checkbox" name="Difficultés respiratoires" id="Difficultés respiratoires"/><label  for="Difficultés respiratoires">Difficultés respiratoires</label>
+                    <input type="checkbox" name="Hoquets" id="Hoquets"/><label for="Hoquets">Hoquets</label>
             </form>
-            <input type="text" id="ListeSignesCliniques"><br>
-            <label for="mov2">Conclusions médicales</label>
-            <input type="text" id="ConclusionsMedicales"><br>
-            <input type="submit" value="Enregistrer les données" class="ui-btn ui-corner-all ui-btn-inline" onclick="document.location.href='#pageConfirmationEnregistrement'">
+            <input type="text" id="ListeSignesCliniques"><label>Autre</label><br>
+            <input type="submit" value="Enregistrer les données" class="ui-btn ui-corner-all ui-btn-inline" onclick="document.location.href='#pageConclusionSuiviMedical'">
+        </div>
+
+        <div data-role="page" id="pageConclusionSuiviMedical">
+            <h3>Conclusion Suivi Medical</h3>
+            <a class="bouton vert">Poursuite à domicile</a>
+            <input type="button" id="PoursuiteDomicile" value="Poursuite du suivi à domicile">
+            <input type="button" id="TransfertTransit" value="Transfert au centre de transit">
+            <input type="button" id="TransfertCentreExamen" value="Transfert au centre pour examen">
         </div>
 
 
