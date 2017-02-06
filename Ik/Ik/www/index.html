@@ -207,17 +207,31 @@
             <h3>Présence de signes cliniques ?</h3>
             <div data-role="main" class="ui-content">
                 <a href="#pageOuiSignes" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Oui</a>
-                <a href="#pageNonSignes" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Non</a>
+                <a href="#pageAutresObservations" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Non</a>
             </div>
         </div>
+
 
         <div data-role="page" id="pageOuiSignes">
             <h3>Présente des signes cliniques</h3>
             <label for="mov1">Liste signes cliniques</label>
+            <form>
+                <select name="Signes cliniques">
+                    <!--recuperation des valeurs avec la base de données...-->
+                    <input type="checkbox" name="VN" id="VN"/><label for="VN">Vomissement ou nausées</label><br />
+                    <option>Diarrhée</option>
+                    <option>Fatigue intense</option>
+                    <option>Ictère</option>
+                    <option>Myalgies/arthralgies</option>
+                    <option>Céphalées</option>
+                    <option>Difficultés respiratoires</option>
+                    <option>Hoquets</option>
+                </select>
+            </form>
             <input type="text" id="ListeSignesCliniques"><br>
             <label for="mov2">Conclusions médicales</label>
             <input type="text" id="ConclusionsMedicales"><br>
-            <input type="button" name="Enregistrer" value="Enregistrer">
+            <input type="submit" value="Enregistrer les données" class="ui-btn ui-corner-all ui-btn-inline" onclick="document.location.href='#pageConfirmationEnregistrement'">
         </div>
 
 
