@@ -180,15 +180,9 @@
             </form>
         </div>
 
-        <!--
-        Cf. CDC une fois que l'utilisateur clique sur le bouton "Oui" de la page "A la maison?", il est redirigé vers l'écran de confirmation "enregistrement des données"
-        mais il doit après aller sur la page Autres observation et pour terminer la page Confirmation enregistrement
-        C'est pourquoi j'ai crée 2 pages d'enregistrements (pageOui et pageConfirmationEnregistrement).
-        Jessica
-        -->
         <div data-role="page" id="pageOui" class="ui-field-contain">
             <h3>A la maison ce jour:OUI</h3>
-            <label for="mov1">Température</label>
+            <h4>Température du jour</h4>
             <form id="temperature">
                 <input type="text" id="valeurtemperature"><br>
                 <div data-role="main" class="ui-content">
@@ -197,18 +191,13 @@
                         <input type="button" name="bouton_save" value="Enregistrer" onclick="document.location.href='#pageConfirmationEnregistrement'">
                     </fieldset>
                 </div>
-            </form>
-            <p>Les informations ont bien été enregistrées</p>
-            <a href="#pagepresenteDesSignesCliniques" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Suivant</a>
-            <!-- créer 1 fonction enregistrer les données -->
-        </div>
 
-        <div data-role="page" id="pagepresenteDesSignesCliniques">
-            <h3>Présence de signes cliniques ?</h3>
-            <div data-role="main" class="ui-content">
-                <a href="#pageOuiSignes" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Oui</a>
-                <a href="#pageAutresObservations" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Non</a>
-            </div>
+                <h3>Présence de signes cliniques ?</h3>
+                <div data-role="main" class="ui-content">
+                    <a href="#pageOuiSignes" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Oui</a>
+                    <a href="#pageAutresObservations" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Non</a>
+                </div>
+            </form>
         </div>
 
 
@@ -217,27 +206,48 @@
             <label for="mov1">Liste signes cliniques</label>
             <form>
                     <!--recuperation des valeurs avec la base de données...-->
-                    <input type="checkbox" name="VN" id="VN"/><label for="VN">Vomissement ou nausées</label>
-                    <input type="checkbox" name="Diarrhée" id="Diarrhée"/><label for="Diarrhée">Diarrhée</label>
-                    <input type="checkbox" name="Fatigue intense" id="Fatigue intense"/><label for="Fatigue intense">Fatigue intense</label>
-                    <input type="checkbox" name="Ictère" id="Ictère"/><label for="Ictère">Ictère</label>
-                    <input type="checkbox" name="Myalgies" id="Myalgies"/><label for="Myalgies">Myalgies/arthralgies</label>
-                    <input type="checkbox" name="Céphalées" id="Céphalées"/><label for="Céphalées">Céphalées</label>
-                    <input type="checkbox" name="Difficultés respiratoires" id="Difficultés respiratoires"/><label  for="Difficultés respiratoires">Difficultés respiratoires</label>
-                    <input type="checkbox" name="Hoquets" id="Hoquets"/><label for="Hoquets">Hoquets</label>
-            </form>
-            <input type="text" id="ListeSignesCliniques"><label>Autre</label><br>
+                <input type="checkbox" name="VN" id="VN"/><label for="VN">Vomissement ou nausées</label>
+                <input type="checkbox" name="Diarrhée" id="Diarrhée"/><label for="Diarrhée">Diarrhée</label>
+                <input type="checkbox" name="Fatigue intense" id="Fatigue intense"/><label for="Fatigue intense">Fatigue intense</label>
+                <input type="checkbox" name="Ictère" id="Ictère"/><label for="Ictère">Ictère</label>
+                <input type="checkbox" name="Myalgies" id="Myalgies"/><label for="Myalgies">Myalgies/arthralgies</label>
+                <input type="checkbox" name="Céphalées" id="Céphalées"/><label for="Céphalées">Céphalées</label>
+                <input type="checkbox" name="Difficultés respiratoires" id="Difficultés respiratoires"/><label  for="Difficultés respiratoires">Difficultés respiratoires</label>
+                <input type="checkbox" name="Hoquets" id="Hoquets"/><label for="Hoquets">Hoquets</label>
+                <label>Autre:</label>
+                <input type="text" id="AutreSigneClinique"><br>
             <input type="submit" value="Enregistrer les données" class="ui-btn ui-corner-all ui-btn-inline" onclick="document.location.href='#pageConclusionSuiviMedical'">
+            </form>
         </div>
 
         <div data-role="page" id="pageConclusionSuiviMedical">
             <h3>Conclusion Suivi Medical</h3>
             <!--<li><a class="bouton vert">Bouton vert</a></li> -->
             <input type="button" id="PoursuiteDomicile" value="Poursuite du suivi à domicile" onclick="document.location.href='#pageAutresObservations'">
-            <input type="button" id="TransfertTransit" value="Transfert au centre de transit">
-            <input type="button" id="TransfertCentreExamen" value="Transfert au centre pour examen">
+            <input type="button" id="TransfertTransit" value="Transfert au centre de transit" onclick="document.location.href='#pageEnTransit'">
+            <input type="button" id="TransfertCentreExamen" value="Transfert au centre pour examen" onclick="document.location.href='#pageEnCentreExamen'">
         </div>
 
+
+        <div data-role="page" id="pageEnTransit">
+            <h3>Conclusion suivi médical</h3>
+            <h5>Transfert au centre de transit</h5>
+            <!-- le centre devra etre celui le plus proche -->
+            <label id="NomCentreTransit">Nom du centre</label>
+            <!-- Donnee recupere de la base de donnée -->
+            <label>N° de telephone</label>
+            <input type="submit" value="Enregistrer les données" class="ui-btn ui-corner-all ui-btn-inline" onclick="document.location.href='#pageAutresObservations'">
+        </div>
+
+        div data-role="page" id="pageEnCentreExamen">
+        <h3>Conclusion suivi médical</h3>
+        <h5>Transfert au centre de traitement pour examen</h5>
+        <!-- le centre devra etre celui le plus proche -->
+        <label id="NomCentreExamane">Nom du centre</label>
+        <!-- Donnee recupere de la base de donnée -->
+        <label>N° de telephone</label>
+        <input type="submit" value="Enregistrer les données" class="ui-btn ui-corner-all ui-btn-inline" onclick="document.location.href='#pageAutresObservations'">
+        </div>
 
         <div data-role="page" id="pageAutresObservations" class="ui-field-contain">
             <h3>Autres observations</h3>
